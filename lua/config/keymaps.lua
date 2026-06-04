@@ -60,3 +60,14 @@ vim.keymap.set("x", "<C-r>", function()
 end, {
   desc = "Search and replace in visual selection",
 })
+-- delete buffer in current window but keep window open showing alternate buffer
+vim.keymap.set("n", "<leader>bd", function()
+  vim.cmd("bprevious") -- switch this window to previous buffer
+  vim.cmd("silent! bd #") -- delete the buffer that was hidden (# is alternate)
+end, { desc = "Close buffer but keep window" })
+
+vim.keymap.set("n", "<leader>ti", function()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local caps = vim.treesitter.get_captures_at_pos(0, row - 1, col - 1)
+  print(vim.inspect(caps))
+end, { desc = "Inspect Treesitter captures" })

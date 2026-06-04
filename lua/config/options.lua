@@ -4,3 +4,5 @@
 
 -- blinking underline in insert mode
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:hor20-blinkwait700-blinkoff400-blinkon250,r-cr:hor20,o:hor50"
+vim.cmd([[ highlight CursorLine guibg=NONE gui=underline ]])
+vim.o.termguicolors = true
