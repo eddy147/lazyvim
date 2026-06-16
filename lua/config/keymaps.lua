@@ -71,3 +71,17 @@ vim.keymap.set("n", "<leader>ti", function()
   local caps = vim.treesitter.get_captures_at_pos(0, row - 1, col - 1)
   print(vim.inspect(caps))
 end, { desc = "Inspect Treesitter captures" })
+
+-- Override <leader>ft to open a native horizontal split instead of a float
+vim.keymap.set("n", "<leader>ft", function()
+  LazyVim.terminal(nil, { cwd = LazyVim.root(), ctrl_hjkl = true, border = "none" })
+end, { desc = "Terminal (Root Dir)" })
+
+vim.keymap.set("n", "<leader>gr", function()
+  local ok, diff = pcall(require, "mini.diff")
+  if not ok then
+    vim.notify("mini.diff is not available", vim.log.levels.WARN)
+    return ""
+  end
+  return diff.operator("reset") .. "gh"
+end, { expr = true, remap = true, desc = "Reset Hunk" })
