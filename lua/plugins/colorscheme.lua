@@ -27,8 +27,8 @@ return {
       --colorscheme = "github_light_default",
       --colorscheme = "matugen",
       --colorscheme = "melange",
-      -- colorscheme = "randombones",
-      colorscheme = "oasis-canyon",
+      colorscheme = "cyberdream-light",
+      -- colorscheme = "oasis-canyon",
     },
   },
 }
