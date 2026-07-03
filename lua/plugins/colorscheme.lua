@@ -25,10 +25,10 @@ return {
     "LazyVim/LazyVim",
     opts = {
       --colorscheme = "github_light_default",
-      --colorscheme = "matugen",
+      colorscheme = "gemini-dark",
       --colorscheme = "melange",
-      colorscheme = "cyberdream-light",
-      -- colorscheme = "oasis-canyon",
+      -- colorscheme = "cyberdream-light",
+      -- colorscheme = "oasis-starlight",
     },
   },
 }
