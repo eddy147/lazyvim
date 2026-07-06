@@ -1,0 +1,53 @@
+---@class Palette
+---@field bg string
+---@field fg string
+---@field selection string
+---@field comment string
+---@field red string
+---@field orange string
+---@field yellow string
+---@field green string
+---@field purple string
+---@field cyan string
+---@field blue string
+---@field pink string
+---@field bright_red string
+---@field bright_green string
+---@field bright_yellow string
+---@field bright_blue string
+---@field bright_magenta string
+---@field bright_cyan string
+---@field bright_white string
+---@field menu string
+---@field visual string
+---@field gutter_fg string
+---@field nontext string
+---@field white string
+---@field black string
+return {
+  bg = "#000000",
+  fg = "#FFFFFF",
+  selection = "#44475A",
+  comment = "#80868b",
+  red = "#ff4433",
+  orange = "#FFB86C",
+  yellow = "#ffdb0f",
+  green = "#50fa7b",
+  purple = "#969dff",
+  cyan = "#8BE9FD",
+  blue = "#4fa0ff",
+  pink = "#FF96DA",
+  bright_red = "#FF6E6E",
+  bright_green = "#69FF94",
+  bright_yellow = "#FFFFA5",
+  bright_blue = "#D6ACFF",
+  bright_magenta = "#FF92DF",
+  bright_cyan = "#A4FFFF",
+  bright_white = "#FFFFFF",
+  menu = "#21222C",
+  visual = "#3E4452",
+  gutter_fg = "#4B5263",
+  nontext = "#3B4048",
+  white = "#ffffff",
+  black = "#000000",
+}

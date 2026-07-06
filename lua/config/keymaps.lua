@@ -72,6 +72,20 @@ vim.keymap.set("n", "<leader>ti", function()
   print(vim.inspect(caps))
 end, { desc = "Inspect Treesitter captures" })
 
+vim.keymap.set("n", "<leader>hi", function()
+  if vim.show_pos then
+    vim.show_pos()
+    return
+  end
+
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local id = vim.fn.synID(row, col + 1, 1)
+  local name = vim.fn.synIDattr(id, "name")
+  local translated = vim.fn.synIDattr(vim.fn.synIDtrans(id), "name")
+
+  vim.notify(("hl: %s -> %s"):format(name ~= "" and name or "NONE", translated ~= "" and translated or "NONE"))
+end, { desc = "Inspect highlight under cursor" })
+
 -- Override <leader>ft to open a native horizontal split instead of a float
 vim.keymap.set("n", "<leader>ft", function()
   LazyVim.terminal(nil, { cwd = LazyVim.root(), ctrl_hjkl = true, border = "none" })
