@@ -2,9 +2,7 @@ return {
   { "scottmckendry/cyberdream.nvim", lazy = false, priority = 1000 },
   { "savq/melange-nvim" },
   { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
-  { "ray-x/aurora", lazy = false, priority = 1000 },
   { "embark-theme/vim", lazy = false, priority = 1000, name = "embark" },
-  { "projekt0n/github-nvim-theme", name = "github-theme" },
   { "uhs-robert/oasis.nvim", lazy = false, priority = 1000 },
   { "NLKNguyen/papercolor-theme", lazy = false, priority = 1000 },
   {
@@ -24,10 +22,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      --colorscheme = "github_light_default",
-      colorscheme = "gemini-dark",
+      -- colorscheme = "gemini-dark",
       --colorscheme = "melange",
-      -- colorscheme = "cyberdream-light",
+      colorscheme = "cyberdream",
       -- colorscheme = "oasis-starlight",
     },
   },

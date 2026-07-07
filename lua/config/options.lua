@@ -7,3 +7,4 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:hor20-blinkwait700-blinkoff400-blinkon2
 vim.cmd([[ highlight CursorLine guibg=NONE gui=underline ]])
 vim.o.termguicolors = true
 vim.o.shell = "fish"
+vim.g.lazyvim_blink_main = true
