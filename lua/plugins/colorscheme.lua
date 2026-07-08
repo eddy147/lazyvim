@@ -19,6 +19,7 @@ return {
     --     vim.cmd.colorscheme('zenbones')
     -- end
   },
+  { "Mofiqul/dracula.nvim", lazy = false, priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {
