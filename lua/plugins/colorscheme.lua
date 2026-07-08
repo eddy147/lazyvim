@@ -26,6 +26,7 @@ return {
       -- colorscheme = "gemini-dark",
       --colorscheme = "melange",
       colorscheme = "cyberdream",
+      colorscheme = "cobalt",
       -- colorscheme = "oasis-starlight",
     },
   },

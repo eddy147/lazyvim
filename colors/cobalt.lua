@@ -6,15 +6,15 @@ vim.g.colors_name = "cherry-midnight"
 
 -- Gemini Code Block Palette
 local bg = "#0040FF"
-local fg = "#ebf0ff"
-local comment = "#00ffc4"
+local fg = "#eeeeff"
+local comment = "#999999"
 local keyword = "#e6ddff"
-local function_ = "#ccbcff"
+local function_ = "#ffffff"
 local constant = "#cccccc"
 local type_ = "#75a2a5"
 local visual = "#0030eb"
-local string_ = "#ffffff"
-local variable = "#5862e2"
+local string_ = function_
+local variable = "#eeeeee"
 
 local highlights = {
   -- Base
@@ -35,15 +35,14 @@ local highlights = {
 
   -- TreeSitter & LSP Highlights (Crucial for modern Neovim/LazyVim)
   ["@variable"] = { fg = variable }, -- Standard variables
+  ["@variable.elixir"] = { fg = variable, underline = false }, -- Standard variables
+  ["@string.special.symbol.elixir"] = { fg = comment }, -- Standard variables
   ["@variable.builtin"] = { fg = keyword }, -- self, absolute constants, etc.
   ["@variable.parameter"] = { fg = variable }, -- Function arguments (_processor_name, message)
   ["@variable.member"] = { fg = variable }, -- Struct/Map keys and fields (key:, data:)
   ["@property"] = { fg = fg }, -- Properties/fields
   ["@attribute"] = { fg = variable }, -- Elixir attributes like @module_attribute
-  ["@keyword.operator"] = { fg = keyword }, -- Operators that are words (e.g., 'do', 'end', 'in')
-
-  -- Keep these as type_ (yellow) for definitions/structs if desired:
-  ["@function.elixir"] = { fg = function_ },
+  ["@function.elixir"] = { fg = function_, underline = false },
   ["@function.call.elixir"] = { fg = function_ },
   ["@number.elixir"] = { fg = constant },
 
@@ -64,8 +63,11 @@ local highlights = {
   ["@keyword.directive"] = { fg = keyword }, -- For 'defmodule', 'use', 'alias'
 
   -- The precise TreeSitter nodes for Elixir module definitions
-  ["@constructor.elixir"] = { fg = type_ }, -- Often catches the defined module name
-  ["@namespace.elixir"] = { fg = fg }, -- Keeps regular namespaces white
+  ["@constructor.elixir"] = { fg = type_ },
+  ["@namespace.elixir"] = { fg = fg },
+  ["@keyword.operator"] = { fg = keyword, underline = false }, -- Operators that are words (e.g., 'do', 'end', 'in')
+  ["@keyword"] = { fg = keyword, underline = false },
+  ["@keyword.elixir"] = { fg = keyword, underline = false },
 
   Statement = { fg = fg },
   Conditional = { fg = fg },
@@ -92,11 +94,11 @@ local highlights = {
   Debug = { fg = constant },
 
   -- Editor UI Elements
-  CursorLine = { bg = "#252526" },
+  CursorLine = { bg = "#000000" },
   LineNr = { fg = comment },
-  CursorLineNr = { fg = function_, bold = true },
+  CursorLineNr = { fg = "#FFFFFF", bold = true },
   Visual = { bg = visual },
-  Search = { bg = "#41331c", fg = "#fdd663" },
+  Search = { bg = "#002cb2", fg = type_ },
   IncSearch = { bg = "#fdd663", fg = bg },
 
   -- Diagnostics (LSP Errors, Warnings, etc.)
@@ -112,10 +114,18 @@ local highlights = {
   DiagnosticUnderlineHint = { undercurl = true, sp = "#60d673" },
 
   -- Dropdown / Autocomplete Menu (Pmenu)
-  Pmenu = { bg = "#1a1a1a", fg = fg }, -- Very dark gray dropdown background
+  Pmenu = { bg = "#0033CC", fg = fg }, -- Very dark gray dropdown background
   PmenuSel = { bg = visual, fg = fg }, -- Color of the currently selected item
-  PmenuSbar = { bg = "#111111" }, -- Scrollbar background
-  PmenuThumb = { bg = comment }, -- Scrollbar handle
+  PmenuSbar = { bg = "#002699" }, -- Scrollbar background
+  PmenuThumb = { bg = "#002cb2" }, -- Scrollbar handle
+
+  -- Snacks Explorer / Picker readability
+  SnacksPickerPathHidden = { fg = fg },
+  SnacksPickerPathIgnored = { fg = fg },
+  SnacksPickerDir = { fg = fg },
+  SnacksPickerDirectory = { fg = fg },
+  SnacksPickerGitStatusIgnored = { fg = fg },
+  SnacksPickerGitStatusUntracked = { fg = fg },
 }
 
 for group, settings in pairs(highlights) do

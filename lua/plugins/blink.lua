@@ -1,26 +1,50 @@
 return {
   {
     "saghen/blink.cmp",
-    optional = true,
+    dependencies = {
+      "saghen/blink.lib",
+      -- optional: provides snippets for the snippet source
+      "rafamadriz/friendly-snippets",
+    },
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
+      -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+      -- 'super-tab' for mappings similar to vscode (tab to accept)
+      -- 'enter' for enter to accept
+      -- 'none' for no mappings
+      --
+      -- All presets have the following mappings:
+      -- C-space: Open menu or open docs if already open
+      -- C-n/C-p or Up/Down: Select next/previous item
+      -- C-e: Hide menu
+      -- C-k: Toggle signature help (if signature.enabled = true)
+      --
+      -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
-        ["<A-y>"] = {
+        preset = "default",
+        ["<CR>"] = {
           function(cmp)
-            cmp.show({ providers = { "minuet" } })
+            local ok, virtualtext = pcall(require, "minuet.virtualtext")
+            if ok and virtualtext.action.is_visible() then
+              virtualtext.action.accept()
+              return true
+            end
+            return cmp.accept()
           end,
+          "fallback",
         },
       },
-      sources = {
-        -- if you want to use auto-complete
-        default = { "minuet" },
-        providers = {
-          minuet = {
-            name = "minuet",
-            module = "minuet.blink",
-            score_offset = 100,
-          },
-        },
-      },
+
+      -- (Default) Only show the documentation popup when manually triggered
+      completion = { documentation = { auto_show = false } },
+
+      -- (Default) list of enabled providers defined so that you can extend it
+      -- elsewhere in your config, without redefining it, due to `opts_extend`
+      sources = { default = { "lsp", "path", "snippets", "buffer" } },
+
+      -- Use Lua fuzzy matcher when Rust/Cargo toolchain is not installed.
+      fuzzy = { implementation = "lua" },
     },
   },
 }

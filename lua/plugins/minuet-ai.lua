@@ -12,10 +12,10 @@ return {
     },
     virtualtext = {
       auto_trigger_ft = { "*" },
-      keymap = {
-        accept = "<C-l>",
-        accept_line = "<A-a>",
-        accept_n_lines = "<A-z>",
+        keymap = {
+          accept = "<CR>",
+          accept_line = "<A-a>",
+          accept_n_lines = "<A-z>",
         prev = "<A-[>",
         next = "<A-]>",
         dismiss = "<A-e>",
