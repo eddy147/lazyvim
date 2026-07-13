@@ -6,15 +6,20 @@ vim.g.colors_name = "cherry-midnight"
 
 -- Gemini Code Block Palette
 local bg = "#0040FF"
+local bg_darker = "#0033cc"
 local fg = "#eeeeff"
-local comment = "#999999"
+local comment = "#bbdddd"
 local keyword = "#e6ddff"
 local function_ = "#ffffff"
-local constant = "#cccccc"
-local type_ = "#75a2a5"
+local constant = "#ffff99"
+local type_ = "#acdadc"
 local visual = "#0030eb"
 local string_ = function_
 local variable = "#eeeeee"
+local number = "#e9a4f4"
+local operator = constant
+local key = type_
+local value = constant
 
 local highlights = {
   -- Base
@@ -23,7 +28,7 @@ local highlights = {
   Comment = { fg = comment, italic = true },
 
   -- Syntax Hierarchy
-  Constant = { fg = constant },
+  Constant = { fg = constant, bold = false },
   String = { fg = string_ },
   Character = { fg = string_ },
   Number = { fg = fg },
@@ -33,18 +38,22 @@ local highlights = {
   Identifier = { fg = fg },
   Function = { fg = function_ },
 
+  envField = { fg = key },
+  envValue = { fg = value },
+
   -- TreeSitter & LSP Highlights (Crucial for modern Neovim/LazyVim)
   ["@variable"] = { fg = variable }, -- Standard variables
   ["@variable.elixir"] = { fg = variable, underline = false }, -- Standard variables
-  ["@string.special.symbol.elixir"] = { fg = comment }, -- Standard variables
+  ["@string.special.symbol.elixir"] = { fg = type_ }, -- Standard variables
   ["@variable.builtin"] = { fg = keyword }, -- self, absolute constants, etc.
   ["@variable.parameter"] = { fg = variable }, -- Function arguments (_processor_name, message)
   ["@variable.member"] = { fg = variable }, -- Struct/Map keys and fields (key:, data:)
   ["@property"] = { fg = fg }, -- Properties/fields
   ["@attribute"] = { fg = variable }, -- Elixir attributes like @module_attribute
   ["@function.elixir"] = { fg = function_, underline = false },
-  ["@function.call.elixir"] = { fg = function_ },
-  ["@number.elixir"] = { fg = constant },
+  ["@function.call.elixir"] = { fg = function_, bold = true },
+  ["@number.elixir"] = { fg = number },
+  ["@constant.elixir"] = { fg = number },
 
   -- LSP Semantic Tokens fallback
   ["@lsp.type.variable"] = { fg = fg },
@@ -65,15 +74,19 @@ local highlights = {
   -- The precise TreeSitter nodes for Elixir module definitions
   ["@constructor.elixir"] = { fg = type_ },
   ["@namespace.elixir"] = { fg = fg },
-  ["@keyword.operator"] = { fg = keyword, underline = false }, -- Operators that are words (e.g., 'do', 'end', 'in')
-  ["@keyword"] = { fg = keyword, underline = false },
+  ["@keyword.operator"] = { fg = operator }, -- Operators that are words (e.g., 'do', 'end', 'in')
+  ["@keyword"] = { fg = keyword },
   ["@keyword.elixir"] = { fg = keyword, underline = false },
+  ["@keyword.lua"] = { fg = keyword, underline = false },
+
+  -- Markdown
+  ["@markup.raw.block"] = { bg = bg },
 
   Statement = { fg = fg },
   Conditional = { fg = fg },
   Repeat = { fg = fg },
   Label = { fg = fg },
-  Operator = { fg = fg },
+  Operator = { fg = operator },
   Keyword = { fg = keyword },
   Exception = { fg = keyword },
 
@@ -93,8 +106,10 @@ local highlights = {
   Delimiter = { fg = fg },
   Debug = { fg = constant },
 
+  RenderMarkdownCode = { fg = fg, italic = true, bg = bg_darker },
+
   -- Editor UI Elements
-  CursorLine = { bg = "#000000" },
+  CursorLine = { bg = "#0033cc" },
   LineNr = { fg = comment },
   CursorLineNr = { fg = "#FFFFFF", bold = true },
   Visual = { bg = visual },
@@ -120,8 +135,8 @@ local highlights = {
   PmenuThumb = { bg = "#002cb2" }, -- Scrollbar handle
 
   -- Snacks Explorer / Picker readability
-  SnacksPickerPathHidden = { fg = fg },
-  SnacksPickerPathIgnored = { fg = fg },
+  SnacksPickerPathHidden = { fg = constant },
+  SnacksPickerPathIgnored = { fg = constant },
   SnacksPickerDir = { fg = fg },
   SnacksPickerDirectory = { fg = fg },
   SnacksPickerGitStatusIgnored = { fg = fg },
