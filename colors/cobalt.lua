@@ -2,7 +2,7 @@ vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
   vim.cmd("syntax reset")
 end
-vim.g.colors_name = "cherry-midnight"
+vim.g.colors_name = "cobalt"
 
 -- Gemini Code Block Palette
 local bg = "#0040FF"
@@ -20,6 +20,7 @@ local number = "#e9a4f4"
 local operator = constant
 local key = type_
 local value = constant
+local nontext = "#3359ff"
 
 local highlights = {
   -- Base
@@ -141,6 +142,14 @@ local highlights = {
   SnacksPickerDirectory = { fg = fg },
   SnacksPickerGitStatusIgnored = { fg = fg },
   SnacksPickerGitStatusUntracked = { fg = fg },
+  -- SnacksIndentScope = { fg = "#aaaaaa" },
+  -- SnacksIndentChunk = { fg = "#aaaaaa" },
+  SnacksIndent = { fg = nontext },
+  SnacksPickerBorder = { fg = nontext },
+  SnacksPickerTotals = { fg = constant },
+
+  WinSeparator = { fg = nontext, bg = bg },
+  VertSplit = { fg = nontext, bg = bg },
 }
 
 for group, settings in pairs(highlights) do

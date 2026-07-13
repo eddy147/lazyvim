@@ -25,7 +25,7 @@ return {
     opts = {
       -- colorscheme = "gemini-dark",
       --colorscheme = "melange",
-      colorscheme = "cyberdream",
+      -- colorscheme = "cyberdream",
       colorscheme = "cobalt",
       -- colorscheme = "oasis-starlight",
     },
