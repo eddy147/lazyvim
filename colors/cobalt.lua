@@ -25,7 +25,8 @@ local nontext = "#3359ff"
 local highlights = {
   -- Base
   Normal = { fg = fg, bg = bg },
-  NormalFloat = { fg = fg, bg = bg },
+  NormalFloat = { fg = comment, bg = bg },
+  FloatBorder = { fg = nontext, bg = bg },
   Comment = { fg = comment, italic = true },
 
   -- Syntax Hierarchy
@@ -51,8 +52,10 @@ local highlights = {
   ["@variable.member"] = { fg = variable }, -- Struct/Map keys and fields (key:, data:)
   ["@property"] = { fg = fg }, -- Properties/fields
   ["@attribute"] = { fg = variable }, -- Elixir attributes like @module_attribute
-  ["@function.elixir"] = { fg = function_, underline = false },
-  ["@function.call.elixir"] = { fg = function_, bold = true },
+  ["@function"] = { fg = constant, italic = true },
+  ["@function.elixir"] = { fg = constant, italic = true },
+  ["@function.call.elixir"] = { fg = function_ },
+  ["@function.call"] = { fg = function_, underline = true },
   ["@number.elixir"] = { fg = number },
   ["@constant.elixir"] = { fg = number },
 
