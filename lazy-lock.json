@@ -24,7 +24,6 @@
   "mini.diff": { "branch": "main", "commit": "be4ca6953040332d77a5a05bb5600152c5c36e7a" },
   "mini.icons": { "branch": "main", "commit": "98faae31e9be1cc054ae63485e58ceb185efcad0" },
   "mini.pairs": { "branch": "main", "commit": "b1fd9df3bb4a41c8f45778a3859ee80ef6b367e3" },
-  "minuet-ai.nvim": { "branch": "main", "commit": "d29dec4c36be2b41aa10e70938b7b09a03f0bdba" },
   "multiple-cursors.nvim": { "branch": "main", "commit": "eae76d4c5f7ede2d45746dc2affb5e7a139e4aa8" },
   "nightfly": { "branch": "master", "commit": "66050453bf40ac7eddc7a84dd15291db85fefc43" },
   "noice.nvim": { "branch": "main", "commit": "7bfd942445fb63089b59f97ca487d605e715f155" },
