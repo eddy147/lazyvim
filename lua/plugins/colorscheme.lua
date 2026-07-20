@@ -20,14 +20,17 @@ return {
     -- end
   },
   { "Mofiqul/dracula.nvim", lazy = false, priority = 1000 },
+  { "hylophile/flatwhite.nvim", lazy = false, priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "gemini-dark",
-      --colorscheme = "melange",
+      colorscheme = "cherry_midnight",
+      -- colorscheme = "melange",
       -- colorscheme = "cyberdream",
-      colorscheme = "cobalt",
+      -- colorscheme = "cobalt",
       -- colorscheme = "oasis-starlight",
+      -- colorscheme = "seoulbones",
+      -- colorscheme = "flatwhite",
     },
   },
 }
