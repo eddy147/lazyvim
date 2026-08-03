@@ -24,10 +24,10 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "cherry_midnight",
+      -- colorscheme = "cherry_midnight",
       -- colorscheme = "melange",
       -- colorscheme = "cyberdream",
-      -- colorscheme = "cobalt",
+      colorscheme = "cobalt",
       -- colorscheme = "oasis-starlight",
       -- colorscheme = "seoulbones",
       -- colorscheme = "flatwhite",
