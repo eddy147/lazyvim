@@ -49,53 +49,52 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 })
 
 -- Override specific highlight groups ONLY when flatwhite is loaded
--- Override specific highlight groups ONLY when flatwhite is loaded
-local function apply_flatwhite_overrides()
-  if vim.g.colors_name ~= "flatwhite" then
-    return
-  end
-
-  local dark_fg = "#212121"
-  local subtle_line = "#e8e8e8"
-
-  -- Force variable highlights (Treesitter + LSP)
-  local vars = {
-    "@variable",
-    "@variable.elixir",
-    "@lsp.type.variable",
-    "@lsp.type.variable.elixir",
-    "@lsp.typemod.variable.defaultLibrary",
-  }
-  for _, group in ipairs(vars) do
-    vim.api.nvim_set_hl(0, group, { fg = dark_fg, bold = true, force = true })
-  end
-
-  -- Soften block scope guides and strip bold attributes
-  local scope_groups = {
-    "MiniIndentscopeSymbol",
-    "MiniIndentscopePrefix",
-    "SnacksIndentScope",
-    "SnacksIndent",
-    "IblScope",
-    "IblIndent",
-    "IndentBlanklineContextChar",
-  }
-  for _, group in ipairs(scope_groups) do
-    vim.api.nvim_set_hl(0, group, { fg = subtle_line, bold = false, force = true })
-  end
-end
-
--- 1. Run on initial theme load
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "flatwhite",
-  callback = function()
-    vim.schedule(apply_flatwhite_overrides)
-  end,
-})
-
--- 2. Re-apply when LSP attaches to a buffer (prevents LSP from reverting variables back to light gray)
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
-    vim.schedule(apply_flatwhite_overrides)
-  end,
-})
+-- local function apply_flatwhite_overrides()
+--   if vim.g.colors_name ~= "flatwhite" then
+--     return
+--   end
+--
+--   local dark_fg = "#000000"
+--   local subtle_line = "#e8e8e8"
+--
+--   -- Force variable highlights (Treesitter + LSP)
+--   local vars = {
+--     "@variable",
+--     "@variable.elixir",
+--     "@lsp.type.variable",
+--     "@lsp.type.variable.elixir",
+--     "@lsp.typemod.variable.defaultLibrary",
+--   }
+--   for _, group in ipairs(vars) do
+--     vim.api.nvim_set_hl(0, group, { fg = dark_fg, force = true })
+--   end
+--
+--   -- Soften block scope guides and strip bold attributes
+--   local scope_groups = {
+--     "MiniIndentscopeSymbol",
+--     "MiniIndentscopePrefix",
+--     "SnacksIndentScope",
+--     "SnacksIndent",
+--     "IblScope",
+--     "IblIndent",
+--     "IndentBlanklineContextChar",
+--   }
+--   for _, group in ipairs(scope_groups) do
+--     vim.api.nvim_set_hl(0, group, { fg = subtle_line, bold = false, force = true })
+--   end
+-- end
+--
+-- -- 1. Run on initial theme load
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "flatwhite",
+--   callback = function()
+--     vim.schedule(apply_flatwhite_overrides)
+--   end,
+-- })
+--
+-- -- 2. Re-apply when LSP attaches to a buffer (prevents LSP from reverting variables back to light gray)
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function()
+--     vim.schedule(apply_flatwhite_overrides)
+--   end,
+-- })

@@ -113,7 +113,8 @@ local function setup(configs)
     SnacksPickerDirectory = { fg = colors.fg },
     SnacksPickerGitStatusIgnored = { fg = colors.fg },
     SnacksPickerGitStatusUntracked = { fg = colors.fg },
-    SnacksIndent = { fg = colors.nontext },
+    SnacksIndent = { fg = colors.nontext, bold = false },
+    SnacksPickerTree = { link = "SnacksIndent" },
     SnacksPickerBorder = { fg = colors.nontext },
     SnacksPickerTotals = { fg = colors.constant },
 
