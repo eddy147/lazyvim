@@ -20,7 +20,6 @@ return {
     -- end
   },
   { "Mofiqul/dracula.nvim", lazy = false, priority = 1000 },
-  { "Verf/deepwhite.nvim", lazy = false, priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -28,9 +27,8 @@ return {
       -- colorscheme = "melange",
       -- colorscheme = "cyberdream",
       -- colorscheme = "cobalt",
-      -- colorscheme = "oasis-moonlight",
+      colorscheme = "helix-flatwhite",
       -- colorscheme = "neobones",
-      colorscheme = "deepwhite",
       -- colorscheme = "embark",
     },
   },
