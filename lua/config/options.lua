@@ -3,7 +3,8 @@
 -- Add any additional options here
 
 -- blinking underline in insert mode
-vim.opt.guicursor = "n-v-c:block,i-ci-ve:hor20-blinkwait700-blinkoff400-blinkon250,r-cr:hor20,o:hor50"
+-- vim.opt.guicursor = "n-v-c:block,i-ci-ve:hor20-blinkwait700-blinkoff400-blinkon250,r-cr:hor20,o:hor50" -- Tell Neovim to use the Cursor highlight group for terminal cursor styling
+vim.opt.guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr:hor20-Cursor"
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE", underline = true, sp = "#999999" })
 vim.o.termguicolors = true
 vim.o.shell = "fish"

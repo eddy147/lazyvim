@@ -41,8 +41,6 @@ local hl = {
   Normal = { fg = p.base1, bg = p.base7 },
   NormalFloat = { fg = p.base1, bg = p.base6 },
   FloatBorder = { fg = p.base3, bg = p.base6 },
-  CursorLine = { bg = p.base6 },
-  CursorColumn = { bg = p.base6 },
   ColorColumn = { bg = p.base6 },
   LineNr = { fg = p.base3, bg = p.base6 },
   CursorLineNr = { fg = p.base1, bg = p.base6, bold = true },
@@ -167,6 +165,17 @@ local hl = {
   diffNewFile = { fg = p.green_text },
   diffFile = { fg = p.blue_text, bold = true },
   diffLine = { fg = p.base3 },
+
+  -- Cursor Highlights
+  Cursor = { fg = p.base7, bg = p.base1 }, -- Dark brown/gray block with light text
+  TermCursor = { fg = p.base7, bg = p.base1 },
+  CursorColumn = { bg = p.base6 },
+  CursorLine = { bg = p.base6 },
+
+  -- Secondary cursor states (Visual mode / Search)
+  vCursor = { fg = p.base7, bg = p.purple_text },
+  iCursor = { fg = p.base7, bg = p.base1 },
+  lCursor = { fg = p.base7, bg = p.base1 },
 }
 
 for group, settings in pairs(hl) do
