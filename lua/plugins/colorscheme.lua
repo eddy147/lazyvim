@@ -21,6 +21,13 @@ return {
   },
   { "Mofiqul/dracula.nvim", lazy = false, priority = 1000 },
   {
+    "eddy147/helix-flatwhite.nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("helix-flatwhite")
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "cherry_midnight",
