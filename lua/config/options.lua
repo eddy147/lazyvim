@@ -9,4 +9,5 @@ vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE", underline = true, sp = "#999
 vim.o.termguicolors = true
 vim.o.shell = "fish"
 vim.g.lazyvim_blink_main = true
+vim.g.omni_sql_no_default_maps = 1
 vim.o.winborder = "rounded"
