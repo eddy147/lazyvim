@@ -27,10 +27,11 @@ return {
   --     vim.cmd.colorscheme("helix-flatwhite")
   --   end,
   -- },
+  { "ribru17/bamboo.nvim", lazy = false, priority = 1000, build = false },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "oasis",
+      colorscheme = "bamboo",
     },
   },
 }
